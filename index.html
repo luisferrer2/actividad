@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel de Gestión de Usuarios</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <main class="contenedor">
+    <header class="cabecera">
+      <h1>Panel de usuarios</h1>
+      <p id="resumen" class="resumen"></p>
+    </header>
+
+    <!-- Mensajes de estado: cargando, errores y confirmaciones -->
+    <p id="mensaje" class="mensaje" role="status" aria-live="polite"></p>
+
+    <div class="layout">
+      <!-- Formulario para agregar / modificar -->
+      <section class="tarjeta">
+        <h2 id="tituloForm">Nuevo usuario</h2>
+        <form id="formUsuario" novalidate>
+          <label for="id">Id</label>
+          <input type="text" id="id" name="id" inputmode="numeric" placeholder="Ej: 11">
+
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Nombre completo">
+
+          <label for="correo">Correo</label>
+          <input type="text" id="correo" name="correo" placeholder="nombre@dominio.com">
+
+          <label for="ciudad">Ciudad</label>
+          <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad">
+
+          <div class="acciones-form">
+            <button type="submit" id="btnSubmit" class="btn btn-primario">Agregar</button>
+            <button type="button" id="btnCancelar" class="btn btn-sec" hidden>Cancelar</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Buscador y tabla -->
+      <section class="tarjeta">
+        <label for="buscador">Buscar por nombre</label>
+        <input type="search" id="buscador" placeholder="Escribe para filtrar...">
+
+        <button type="button" id="btnApi" class="btn btn-sec btn-api">Cargar usuarios de ejemplo (API)</button>
+
+        <div class="tabla-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Ciudad</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyUsuarios"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
